@@ -1,0 +1,7 @@
+
+.active-menu {
+  text-decoration: "underline";
+  text-decoration-line: 'overline';
+  text-decoration-thickness: '2px';
+  text-decoration-color: #485fc7
+}
