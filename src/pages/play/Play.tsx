@@ -1,7 +1,14 @@
+import Http from "../../service/Http";
 
 function Play() {
+  const getMenu = () => {
+    Http.get('/menu')
+  }
   return (
-    <h1>play page</h1>
+    <div>
+      <h1>play page</h1>
+      <button onClick={getMenu}>get menu</button>
+    </div>
   );
 }
 
