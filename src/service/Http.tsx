@@ -1,11 +1,13 @@
 const superagent = require('superagent');
 
-const get = (url: string) => {
-  superagent
+const get = (url: string): Promise<Array<any>> => {
+  return new Promise((resolve, reject) => {
+    superagent
     .get(url)
     .then((res: any) => {
-      console.log({res})
-    });
+      resolve(res)
+    }, (err: any) => {reject(err)})
+  })
 }
 
 const post = (url: string) => {

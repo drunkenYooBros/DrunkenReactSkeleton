@@ -10,7 +10,6 @@ function Content() {
         <Route path="/grid" element={<Grid />} />
       </Routes>
     </div>
-    
   );
 }
 
