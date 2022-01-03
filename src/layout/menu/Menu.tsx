@@ -33,23 +33,10 @@ function Menu() {
     </li>
   )
   return (
-    <div id="navbarBasicExample" className="navbar-menu">
-      <div className="navbar-start">
-        {menus}
-      </div>
-      <div className="navbar-end">
-        <div className="navbar-item">
-          <div className="buttons">
-            <a className="button is-primary">
-              <strong>Sign up</strong>
-            </a>
-            <a className="button is-light active-menu">
-              Log in
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <>
+      {menus}
+    </>
+    
   );
 }
 

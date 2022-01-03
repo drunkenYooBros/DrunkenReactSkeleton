@@ -1,5 +1,7 @@
-import React from 'react';
-import Menu from '../menu/Menu';
+import React from 'react'
+import User from 'layout/user/User'
+import Menu from 'layout/menu/Menu'
+
 
 function Header() {
   return (
@@ -16,7 +18,16 @@ function Header() {
         </a>
       </div>
 
-      <Menu />
+      <div id="navbarBasicExample" className="navbar-menu">
+        <div className="navbar-start">
+          <Menu />
+        </div>
+        <div className="navbar-end">
+          <div className="navbar-item">
+            <User />
+          </div>
+        </div>
+      </div>
     </nav>
   );
 }
