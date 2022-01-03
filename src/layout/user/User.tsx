@@ -7,7 +7,6 @@ function User () {
             <a className="button is-primary">
                 <strong>Sign up</strong>
             </a>
-        
             <Link className="button is-light active-menu" to="/login">Sign in</Link>
         </div>
     )

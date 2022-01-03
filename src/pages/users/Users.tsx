@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 import Http from 'service/Http'
+import UserDetail from './userDetail/UserDetail'
 
-function UserList () {
-
+function Users () {
+    const navigate = useNavigate()
     const [userList, setUserList] = useState([])
-    const [rowHover, setRowHoverState] = useState(-1)
     let userListKey: Array<any> = []
 
     useEffect(() => {
@@ -27,8 +28,8 @@ function UserList () {
         )
     }
 
-    const rowClickHandler = (i: any) => {
-        console.log(i)
+    const rowClickHandler = (user: any) => {
+        navigate(`/users/${user.id}`)
     }
 
     userListKey = Object.keys(userList[0])
@@ -43,18 +44,23 @@ function UserList () {
     })
     
     return (
-        <table className="table is-hoverable">
-            <thead>
-                <tr>
-                    {columns}
-                </tr>
-            </thead>
-            <tbody>
-                {rows}
-            </tbody>
-        </table>
+        <>
+            <table className="table is-hoverable">
+                <thead>
+                    <tr>
+                        {columns}
+                    </tr>
+                </thead>
+                <tbody>
+                    {rows}
+                </tbody>
+            </table>
+            <Routes>
+                <Route path=":id" element={<UserDetail />} />
+            </Routes>
+        </>
         
     )
 }
 
-export default UserList
+export default Users

@@ -16,7 +16,7 @@ const getMenuList = rest.get('/menu', (req, res, ctx) => {
       {
         "id": 3,
         "name": "User List",
-        "path": "/user"
+        "path": "/users"
       }
     ]}
   ));
