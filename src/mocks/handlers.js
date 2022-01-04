@@ -6,17 +6,21 @@ const getMenuList = rest.get('/menu', (req, res, ctx) => {
       {
         "id": 1,
         "name": "Play",
-        "path": "/play"
+        "path": "/play",
+        "element": "Play"
       },
       {
         "id": 2,
         "name": "Grid",
-        "path": "/grid"
+        "path": "/grid",
+        "element": "Grid"
       },
       {
         "id": 3,
         "name": "User List",
-        "path": "/users"
+        "path": "/users",
+        "element": "Users",
+        "nested": true
       }
     ]}
   ));
