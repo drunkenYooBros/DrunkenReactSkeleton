@@ -1,19 +1,41 @@
-const superagent = require('superagent');
+import request from "superagent";
+import superagent from "superagent";
 
-const get = (url: string) => {
-  superagent
-    .get(url)
-    .then((res: any) => {
-      console.log({res})
-    });
+interface RequestArgs {
+  url: string;
+  query?: any;
+  payload?: any;
 }
 
-const post = (url: string) => {
-  superagent
-    .post(url)
-    .then((res: any) => {
-      console.log({res})
+// const get = (url: string) => {
+const get = (args: RequestArgs): Promise<any> => {
+  return new Promise((resolve, reject) => {
+    superagent
+    .get(args.url)
+    .query(args.query)
+    .end((err: request.ResponseError, res: request.Response) => {
+      checkResponse(res)
+        ? resolve(res.body)
+        : reject(err.response)
     });
+  })
+}
+
+const post = (args: RequestArgs): Promise<any> => {
+  return new Promise((resolve, reject) => {
+    superagent
+    .post(args.url)
+    .send(args.payload)
+    .end((err: request.ResponseError, res: request.Response) => {
+      checkResponse(res)
+        ? resolve(res.body)
+        : reject(err.response)
+    });
+  })
+}
+
+const checkResponse = (res: request.Response): Boolean => {
+  return res.ok
 }
 
 export default {
