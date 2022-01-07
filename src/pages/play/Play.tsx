@@ -1,12 +1,12 @@
-import Http, { RequestArgs } from 'service/Rest';
+import Http, { RestRequestConfig } from 'service/Rest';
 
 function Play() {
   const getMenu = async () => {
-    const params: RequestArgs = { // TODO : RequestArgs type 사용
+    const config: RestRequestConfig = {
       url: '/menu',
       payload: {name: 'hong'},
     }
-    const data = await Http.get(params)
+    const data = await Http.get(config)
     console.log(data)
   }
   return (

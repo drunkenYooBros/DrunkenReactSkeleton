@@ -1,31 +1,32 @@
 import superagent from "superagent";
 
-export interface RequestArgs {
+export interface RestRequestConfig {
   url: string;
   payload?: any;
+  errorHandler?: Function;
 }
 
-export interface ResponseArgs {
+export interface RestResponse {
   result: any;
-  request?: RequestArgs;
+  request?: RestResponse;
 }
 
-const get = (args: RequestArgs): Promise<any> => {
+const get = (config: RestRequestConfig): Promise<any> => {
   return new Promise(resolve => {
     superagent
-      .get(args.url)
-      .query(args.payload)
+      .get(config.url)
+      .query(config.payload)
       .end((err: superagent.ResponseError, res: superagent.Response) => {
         resolve(parseResponse(err, res))
       })
   })
 }
 
-const post = async (args: RequestArgs): Promise<any> => {
+const post = async (config: RestRequestConfig): Promise<any> => {
   return new Promise(resolve => {
     superagent
-      .post(args.url)
-      .send(args.payload)
+      .post(config.url)
+      .send(config.payload)
       .end((err: superagent.ResponseError, res: superagent.Response) => {
         resolve(parseResponse(err, res))
       })
