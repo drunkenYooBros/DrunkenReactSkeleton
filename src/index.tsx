@@ -7,7 +7,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 
 if (process.env.NODE_ENV === 'development') {
-  console.log('----------------')
   const { worker } = require('./mocks/browser')
   worker.start()
 }

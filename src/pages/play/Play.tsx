@@ -1,11 +1,10 @@
-import CharacterCounter from "components/CharacterCounter";
-import Http from 'service/Http';
+import Http, { RequestArgs } from 'service/Rest';
 
 function Play() {
   const getMenu = async () => {
-    const params = { // TODO : RequestArgs type 사용
+    const params: RequestArgs = { // TODO : RequestArgs type 사용
       url: '/menu',
-      query: {name: 'hong'}
+      payload: {name: 'hong'},
     }
     const data = await Http.get(params)
     console.log(data)
@@ -14,7 +13,6 @@ function Play() {
     <div>
       <h1>play page</h1>
       <button onClick={getMenu}>get menu</button>
-      <CharacterCounter />
     </div>
   );
 }
