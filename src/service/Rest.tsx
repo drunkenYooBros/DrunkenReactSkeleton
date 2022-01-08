@@ -11,47 +11,39 @@ export interface RestResponse {
   request?: RestResponse;
 }
 
-const get = (config: RestRequestConfig): Promise<any> => {
-  return new Promise(resolve => {
-    superagent
-      .get(config.url)
-      .query(config.payload)
-      .end((err: superagent.ResponseError, res: superagent.Response) => {
-        resolve(parseResponse(err, res))
-      })
-  })
+const get = async (config: RestRequestConfig): Promise<any> => {
+  return superagent
+    .get(config.url)
+    .query(config.payload)
+    .then(successHandler)
+    .catch(errorHandler)
 }
 
 const post = async (config: RestRequestConfig): Promise<any> => {
-  return new Promise(resolve => {
-    superagent
-      .post(config.url)
-      .send(config.payload)
-      .end((err: superagent.ResponseError, res: superagent.Response) => {
-        resolve(parseResponse(err, res))
-      })
-  })
+  superagent
+    .post(config.url)
+    .send(config.payload)
+    .then(successHandler)
+    .catch(errorHandler)
 }
 
 /**
- * response 에러 체크 및 response.body parsing
- * @param err 
+ * http request success handler
  * @param res 
  * @returns
  */
-const parseResponse = (err: superagent.ResponseError, res: superagent.Response) => {
-  return checkResponse(res)
-    ? res.body?.result || {}
-    : err.response
+ const successHandler = (res: superagent.Response) => {
+  return res.body?.result || {}
 }
 
 /**
- * check http response
- * @param res http response
- * @returns http request 성공여부
+ * http request error handler
+ * @param err 
+ * @returns
  */
-const checkResponse = (res: superagent.Response): Boolean => {
-  return res.ok
+const errorHandler = (err: superagent.ResponseError) => {
+  // TODO : error 처리
+  return err.response
 }
 
 export default {
