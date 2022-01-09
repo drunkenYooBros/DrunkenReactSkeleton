@@ -7,15 +7,14 @@ import * as dynamicComponents from 'pages/dynamic'
 
 function Content() {
   const menus = useRecoilValue(MainMenuState)
-  console.log(dynamicComponents.dynamic)
 
   const routes = menus.map((menu) => {
     const path = menu?.nested ? `${menu.path}/*` : menu.path
     return (
       <Route
-      key={menu.name}
-      path={path}
-      element={React.createElement(dynamicComponents.dynamic[menu.element])} 
+        key={menu.name}
+        path={path}
+        element={React.createElement(dynamicComponents.dynamic[menu.element])}
       />
     )
   })
