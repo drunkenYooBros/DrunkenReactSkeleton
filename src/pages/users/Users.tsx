@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
-import Http from 'service/Http'
+import Rest, { RestRequestConfig } from 'service/Rest'
 import UserDetail from './userDetail/UserDetail'
 
 function Users () {
@@ -9,10 +9,12 @@ function Users () {
     let userListKey: Array<any> = []
 
     useEffect(() => {
-        Http.get('/users')
+        const restParams: RestRequestConfig = {
+            url: '/users'
+          }
+        Rest.get(restParams)
         .then((res: any) => {
-            console.log(res.body.users)
-            setUserList(res.body.users)
+            setUserList(res)
         })
     }, [])
 
