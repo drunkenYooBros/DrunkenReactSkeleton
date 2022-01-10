@@ -1,35 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import withFetchData from 'helpers/withFetchData'
+import React from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
-import Rest, { RestRequestConfig } from 'service/Rest'
 import UserDetail from './userDetail/UserDetail'
 
-function Users () {
+function Users ({data, loading}: {data: Array<any>, loading: boolean}) {
     const navigate = useNavigate()
-    const [userList, setUserList] = useState([])
+    const userList: Array<any> = data
     let userListKey: Array<any> = []
 
-    useEffect(() => {
-        const restParams: RestRequestConfig = {
-            url: '/users'
-          }
-        Rest.get(restParams)
-        .then((res: any) => {
-            setUserList(res)
-        })
-    }, [])
-
-    if (userList.length === 0) {
+    if (loading) {
         return (
             <table className="table">
                 <tbody>
                     <tr>
-                        <td>Empty</td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>
         )
     }
-
+    
     const rowClickHandler = (user: any) => {
         navigate(`/users/${user.id}`)
     }
@@ -65,4 +55,4 @@ function Users () {
     )
 }
 
-export default Users
+export default withFetchData(Users, '/users')

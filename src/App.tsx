@@ -5,32 +5,13 @@ import Main from './layout/main/Main';
 import { useSetRecoilState } from 'recoil';
 import { MainMenuState } from 'state';
 import Rest, { RestRequestConfig } from 'service/Rest';
+import withFetchData from 'helpers/withFetchData';
 
 function App() {
-  const [loading, setloadStatus] = useState(true)
-  const setMainMenuList = useSetRecoilState(MainMenuState)
-  useEffect(() => {
-    const restParams: RestRequestConfig = {
-      url: '/menu'
-    }
-    Rest.get(restParams)
-    .then((res: any) => {
-      setMainMenuList(res)
-      setloadStatus(false)
-    })
-  }, [])
-
-  if (loading) {
-    return (
-      <div className="App">
-        Loading ...
-      </div>
-    )
-  }
-  
+  const MainWithMenus = withFetchData(Main, '/menu')
   return (
     <div className="App">
-      <Main />
+      <MainWithMenus />
     </div>
   );
 }
