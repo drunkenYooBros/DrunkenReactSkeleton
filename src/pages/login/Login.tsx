@@ -1,20 +1,32 @@
-import React from 'react'
+import React, { useCallback, useState } from 'react'
+import Input from 'components/Input'
 
 function Login () {
     const loginContainerStyle: any = {
         width: "300px",
         padding: "10px"
-      }
+    }
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const onChangeEmail = useCallback((value) => {
+        setEmail(value)
+    }, [])
+
+    const onChangePassword = useCallback((value) => {
+        setPassword(value)
+    }, [])
+
     return (
         <div style={loginContainerStyle}>
             <div className="field">
                 <p className="control">
-                    <input className="input" type="email" placeholder="Email" />
+                    <Input type={"email"} placeHolder={"Input Email"} onChange={onChangeEmail} value={email}/>
                 </p>
                 </div>
                 <div className="field">
                 <p className="control">
-                    <input className="input" type="password" placeholder="Password" />
+                    <Input type={"password"} placeHolder={"Input Password"} onChange={onChangePassword} value={password}/>
                 </p>
             </div>
             <div className="buttons">

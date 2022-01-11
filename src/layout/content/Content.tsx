@@ -9,7 +9,7 @@ function Content({menus}: any) {
   // const menus = useRecoilValue(MainMenuState)
 
   const routes = menus.map((menu: any) => {
-    const path = menu?.nested ? `${menu.path}/*` : menu.path
+  const path = menu?.nested ? `${menu.path}/*` : menu.path
     return (
       <Route
         key={menu.name}
