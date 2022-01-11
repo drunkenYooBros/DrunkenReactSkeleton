@@ -1,4 +1,5 @@
 import Http, { RestRequestConfig } from 'service/Rest';
+import * as CONFIG from 'constant/config'
 
 function Play() {
   const getMenu = async () => {
@@ -11,6 +12,7 @@ function Play() {
   }
   return (
     <div>
+      <h1>{CONFIG.VERSION}</h1>
       <h1>play page</h1>
       <button onClick={getMenu}>get menu</button>
     </div>

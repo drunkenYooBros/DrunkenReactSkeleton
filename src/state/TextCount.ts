@@ -1,6 +1,6 @@
+import { InputTextState } from '.';
 import { selector } from "recoil";
-import { InputTextState } from ".";
-import { States } from "constant/state";
+import * as States from "constant/state";
 
 export default selector<number>({
     key: States.TEXT_COUNT,
