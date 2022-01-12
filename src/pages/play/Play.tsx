@@ -12,7 +12,7 @@ function Play() {
   }
   return (
     <div>
-      <h1>{CONFIG.VERSION}</h1>
+      <h1>CONFIG VERSION IS : {CONFIG.VERSION}</h1>
       <h1>play page</h1>
       <button onClick={getMenu}>get menu</button>
     </div>
