@@ -10,7 +10,6 @@ function App() {
   const setMainMenuList = useSetRecoilState(MainMenuState)
   const Main = React.lazy(async () => {
     const data = await apiPortal.getBootStrapData();
-    console.log(data);
     setMainMenuList(data.menu);
     return await import('./layout/main/Main');
   })
