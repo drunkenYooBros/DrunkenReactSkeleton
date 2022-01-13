@@ -4,7 +4,7 @@ import 'bulma/css/bulma.min.css';
 import { useSetRecoilState } from 'recoil';
 import { MainMenuState } from 'state';
 import apiPortal from 'api/apiPortal';
- 
+import Spinner from 'layout/spinner/Spinner';
 
 function App() {
   const setMainMenuList = useSetRecoilState(MainMenuState)
@@ -15,7 +15,7 @@ function App() {
   })
   return (
     <div className="App">
-      <Suspense fallback={<>Loading ...</>}>
+      <Suspense fallback={Spinner}>
         <Main />
       </Suspense>
     </div>

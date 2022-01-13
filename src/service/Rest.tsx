@@ -32,29 +32,29 @@ const post = async (config: RestRequestConfig): Promise<any> => {
 /**
  * config 설정을 RestRequestConfig 으로 안하고 url(string) 만 설정한 경우 RestRequestConfig type 으로 변환
  * @param config rest 호출시 넘어온 config 정보
- * @returns 
+ * @returns RestRequestConfig
  */
-const getConfig = (config: RestRequestConfig | String): any => {
+const getConfig = (config: RestRequestConfig | String): RestRequestConfig => {
   return typeof config === 'string'
     ? {url: config}
-    : config
+    : config as RestRequestConfig
 }
 
 /**
  * http request success handler
- * @param res 
- * @returns
+ * @param res superagent.Response
+ * @returns any
  */
- const successHandler = (res: superagent.Response) => {
+ const successHandler = (res: superagent.Response): any => {
   return res.body?.result || {}
 }
 
 /**
  * http request error handler
- * @param err 
- * @returns
+ * @param err superagent.ResponseError
+ * @returns any
  */
-const errorHandler = (err: superagent.ResponseError) => {
+const errorHandler = (err: superagent.ResponseError): any => {
   // TODO : error 처리
   return err.response
 }
