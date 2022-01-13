@@ -9,16 +9,19 @@ import Spinner from 'layout/spinner/Spinner';
 function App() {
   const setMainMenuList = useSetRecoilState(MainMenuState)
   const Main = React.lazy(async () => {
+    // menu 가져옴
+    // user 정보 필요
+    // code 정보
     const data = await apiPortal.getBootStrapData();
     setMainMenuList(data.menu);
     return await import('./layout/main/Main');
   })
   return (
-    <div className="App">
-      <Suspense fallback={Spinner}>
+    <Suspense fallback={Spinner}>
+      <div className="App">
         <Main />
-      </Suspense>
-    </div>
+      </div>
+    </Suspense>
   );
 }
 
