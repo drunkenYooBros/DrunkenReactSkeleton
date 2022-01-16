@@ -5,9 +5,8 @@ import React from "react";
 import Login from 'pages/login/Login'
 import * as dynamicComponents from 'pages/dynamic'
 
-function Content({menus}: any) {
-  // const menus = useRecoilValue(MainMenuState)
-
+function Content() {
+  const menus = useRecoilValue(MainMenuState)
   const routes = menus.map((menu: any) => {
   const path = menu?.nested ? `${menu.path}/*` : menu.path
     return (

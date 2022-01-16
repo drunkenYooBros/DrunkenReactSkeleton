@@ -11,7 +11,8 @@ export interface RestResponse {
   request?: RestResponse;
 }
 
-const get = async (config: RestRequestConfig): Promise<any> => {
+const get = async (config: RestRequestConfig | any): Promise<any> => {
+  config = getConfig(config)
   return superagent
     .get(config.url)
     .query(config.payload)
@@ -20,7 +21,8 @@ const get = async (config: RestRequestConfig): Promise<any> => {
 }
 
 const post = async (config: RestRequestConfig): Promise<any> => {
-  superagent
+  config = getConfig(config)
+  return superagent
     .post(config.url)
     .send(config.payload)
     .then(successHandler)
@@ -28,20 +30,31 @@ const post = async (config: RestRequestConfig): Promise<any> => {
 }
 
 /**
- * http request success handler
- * @param res 
- * @returns
+ * config 설정을 RestRequestConfig 으로 안하고 url(string) 만 설정한 경우 RestRequestConfig type 으로 변환
+ * @param config rest 호출시 넘어온 config 정보
+ * @returns RestRequestConfig
  */
- const successHandler = (res: superagent.Response) => {
+const getConfig = (config: RestRequestConfig | String): RestRequestConfig => {
+  return typeof config === 'string'
+    ? {url: config}
+    : config as RestRequestConfig
+}
+
+/**
+ * http request success handler
+ * @param res superagent.Response
+ * @returns any
+ */
+ const successHandler = (res: superagent.Response): any => {
   return res.body?.result || {}
 }
 
 /**
  * http request error handler
- * @param err 
- * @returns
+ * @param err superagent.ResponseError
+ * @returns any
  */
-const errorHandler = (err: superagent.ResponseError) => {
+const errorHandler = (err: superagent.ResponseError): any => {
   // TODO : error 처리
   return err.response
 }

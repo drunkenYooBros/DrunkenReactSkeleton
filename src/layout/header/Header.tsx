@@ -3,7 +3,7 @@ import User from 'layout/user/User'
 import Menu from 'layout/menu/Menu'
 
 
-function Header({menus}: any) {
+function Header() {
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
@@ -20,7 +20,7 @@ function Header({menus}: any) {
 
       <div id="navbarBasicExample" className="navbar-menu">
         <div className="navbar-start">
-          <Menu menus={menus}/>
+          <Menu />
         </div>
         <div className="navbar-end">
           <div className="navbar-item">

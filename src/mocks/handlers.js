@@ -42,9 +42,18 @@ const getUsers = rest.get('/users', (req, res, ctx) => {
   )
 })
 
+const getConfig = rest.get('/config', (req, res, ctx) => {
+  const result = {
+    SERVER_TYPE: 'node',
+    OS_TYPE: 'window',
+  }
+  return res(ctx.json({ result }));
+})
+
 export const handlers = [
   // Handles a GET /menu request
   getMenuList,
   getUsers,
   getList,
+  getConfig,
 ]

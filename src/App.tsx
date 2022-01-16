@@ -1,18 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { Suspense } from 'react';
 import './App.css';
 import 'bulma/css/bulma.min.css';
-import Main from './layout/main/Main';
 import { useSetRecoilState } from 'recoil';
 import { MainMenuState } from 'state';
-import Rest, { RestRequestConfig } from 'service/Rest';
-import withFetchData from 'helpers/withFetchData';
+import apiPortal from 'api/apiPortal';
+import Spinner from 'layout/spinner/Spinner';
 
 function App() {
-  const MainWithMenus = withFetchData(Main, '/menu')
+  let menus
+  const setMainMenuList = useSetRecoilState(MainMenuState)
+  const Main = React.lazy(async () => {
+    // menu 가져옴
+    // user 정보 필요
+    // code 정보
+    const data = await apiPortal.getBootStrapData();
+    setMainMenuList(data.menu);
+    menus = data.menu
+    return await import('./layout/main/Main');
+  })
   return (
-    <div className="App">
-      <MainWithMenus />
-    </div>
+    <Suspense fallback={Spinner}>
+      <div className="App">
+        <Main/>
+      </div>
+    </Suspense>
   );
 }
 
