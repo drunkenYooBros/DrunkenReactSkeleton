@@ -7,7 +7,7 @@ import apiPortal from 'api/apiPortal';
 import Spinner from 'layout/spinner/Spinner';
 
 
-export const bootatrapComponent = (LazyComponent: any) => (props: any) => {
+export const bootStrapComponent = (LazyComponent: any) => (props: any) => {
   const setMainMenuList = useSetRecoilState(MainMenuState)
   useEffect(() => {
     apiPortal.getBootStrapData().then( (data) => {
@@ -23,7 +23,7 @@ export const bootatrapComponent = (LazyComponent: any) => (props: any) => {
 
 
 function App() {
-  const Main = bootatrapComponent(React.lazy(() => import('layout/main/Main')));
+  const Main = bootStrapComponent(React.lazy(() => import('layout/main/Main')));
   return (
     <>
       <Main/>
