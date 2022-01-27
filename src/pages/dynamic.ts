@@ -1,10 +1,11 @@
 import Grid from 'pages/grid/Grid'
-import Play from 'pages/play/Play'
+import HongPlay from 'pages/hongPlay/HongPlay'
+import SungPlay from 'pages/sungPlay/SungPlay'
 import Users from 'pages/users/Users'
 
 export const dynamic: {[key: string]: any} = {
-    'Grid': Grid,
-    'Play': Play,
-    'Users': Users
+  'HongPlay': HongPlay,
+  'SungPlay': SungPlay,
+  'Grid': Grid,
+  'Users': Users
 }
-

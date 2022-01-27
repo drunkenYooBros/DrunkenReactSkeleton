@@ -2,25 +2,36 @@ import { rest } from 'msw'
 
 const getMenuList = rest.get('/menu', (req, res, ctx) => {
   // const id = req.url.searchParams.get('id');
+  let id = 1
   return res(ctx.json({ result: [
       {
-        "id": 1,
-        "name": "Play",
-        "path": "/play",
-        "element": "Play"
+        "id": id++,
+        "name": "Hong Play",
+        "path": "/hongPlay",
+        "element": "HongPlay",
+        "component": "pages/hongPlay/HongPlay"
       },
       {
-        "id": 2,
+        "id": id++,
+        "name": "Sung Play",
+        "path": "/sungPlay",
+        "element": "SungPlay",
+        "component": "pages/sungPlay/SungPlay"
+      },
+      {
+        "id": id++,
         "name": "Grid",
         "path": "/grid",
-        "element": "Grid"
+        "element": "Grid",
+        "component": "pages/grid/Grid"
       },
       {
-        "id": 3,
+        "id": id++,
         "name": "User List",
         "path": "/users",
         "element": "Users",
-        "nested": true
+        "nested": true,
+        "component": "pages/users/Users"
       }
     ]}
   ))

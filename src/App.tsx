@@ -21,9 +21,10 @@ export const bootStrapComponent = (LazyComponent: any) => (props: any) => {
   )
 }
 
-
+ 
 function App() {
-  const Main = bootStrapComponent(React.lazy(() => import('layout/main/Main')));
+  const path = 'layout/main/Main'
+  const Main = bootStrapComponent(React.lazy(() => import(`${path}`)));
   return (
     <>
       <Main/>
