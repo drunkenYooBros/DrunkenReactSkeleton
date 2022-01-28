@@ -9,21 +9,21 @@ const getMenuList = rest.get('/menu', (req, res, ctx) => {
         "name": "Hong Play",
         "path": "/hongPlay",
         "element": "HongPlay",
-        "component": "pages/hongPlay/HongPlay"
+        "component": "hongPlay/HongPlay"
       },
       {
         "id": id++,
         "name": "Sung Play",
         "path": "/sungPlay",
         "element": "SungPlay",
-        "component": "pages/sungPlay/SungPlay"
+        "component": "sungPlay/SungPlay"
       },
       {
         "id": id++,
         "name": "Grid",
         "path": "/grid",
         "element": "Grid",
-        "component": "pages/grid/Grid"
+        "component": "grid/Grid"
       },
       {
         "id": id++,
@@ -31,7 +31,7 @@ const getMenuList = rest.get('/menu', (req, res, ctx) => {
         "path": "/users",
         "element": "Users",
         "nested": true,
-        "component": "pages/users/Users"
+        "component": "users/Users"
       }
     ]}
   ))
