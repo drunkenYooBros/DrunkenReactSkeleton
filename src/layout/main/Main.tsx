@@ -1,7 +1,7 @@
-import React from 'react';
 import Content from '../content/Content';
 import Footer from '../footer/Footer';
 import Header from '../header/Header';
+import ModalContainer from 'layout/modal/modalContainer';
 
 function Main() {
   return (
@@ -9,6 +9,7 @@ function Main() {
       <Header />
       <Content />
       <Footer />
+      <ModalContainer />
     </div>
   );
 }

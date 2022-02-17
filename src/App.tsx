@@ -6,7 +6,6 @@ import { MainMenuState } from 'state';
 import apiPortal from 'api/apiPortal';
 import Spinner from 'layout/spinner/Spinner';
 
-
 export const bootStrapComponent = (Component: any) => (props: any) => {
   const setMainMenuList = useSetRecoilState(MainMenuState)
   useEffect(() => {
