@@ -1,10 +1,12 @@
-import { useRecoilState } from 'recoil';
-import { ModalState } from 'state';
+import { useSetRecoilState } from 'recoil';
+import { removeModalSelector } from 'state';
 
 function Modal(props: any) {
+  const removeModal = useSetRecoilState(removeModalSelector)
   const closeButtonClick = () => {
-    // setModalList(modalList.slice(0, -1))
+    removeModal(null)
   }
+  const content = <props.content />
   return (
     <div className="modal is-active">
       <div className="modal-background"></div>
@@ -14,7 +16,7 @@ function Modal(props: any) {
           <button className="delete" aria-label="close" onClick={closeButtonClick}></button>
         </header>
         <section className="modal-card-body">
-          modal content ....
+          {content}
         </section>
         <footer className="modal-card-foot">
           <button className="button is-success">Save changes</button>

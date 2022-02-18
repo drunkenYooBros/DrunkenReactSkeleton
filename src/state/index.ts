@@ -1,7 +1,10 @@
 import MainMenuState from './Menu'
-import ModalState from './Modal'
+import { modalListState, modalListSelector, appendModalSelector, removeModalSelector } from './Modal'
 
 export {
 	MainMenuState,
-	ModalState,
+	modalListState,
+	modalListSelector,
+	appendModalSelector,
+	removeModalSelector,
 }
