@@ -1,15 +1,14 @@
 import Modal from "layout/modal/modal"
 
 function LoginModal() {
-  const buttonClick = () => {
-    console.log('xxx')
-  }
-  const content = () => (
+  const content = (props: any) => (
     <>
-      <h2>login.tsx :: content</h2>
-      <button onClick={buttonClick}>process</button>
+      <h2>login.tsx :: content {props.age}</h2>
+      <button onClick={() => props.closeHandler()}>only close</button>
+      <button onClick={() => props.closeHandler({data:{}})}>send close</button>
     </>
   )
+
   return (
     <Modal
       content={content}

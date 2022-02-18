@@ -6,7 +6,16 @@ function Modal(props: any) {
   const closeButtonClick = () => {
     removeModal()
   }
-  const content = <props.content />
+  const closePopup = (params: any={}) => {
+    console.log('closePopup', params)
+    removeModal()
+  }
+  const content = (
+    <props.content
+      age="11"
+      closeHandler={closePopup}
+    />
+  )
   return (
     <div className="modal is-active">
       <div className="modal-background"></div>
