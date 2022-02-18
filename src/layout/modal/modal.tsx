@@ -4,7 +4,7 @@ import { removeModalSelector } from 'state';
 function Modal(props: any) {
   const removeModal = useSetRecoilState(removeModalSelector)
   const closeButtonClick = () => {
-    removeModal(null)
+    removeModal()
   }
   const content = <props.content />
   return (

@@ -1,12 +1,13 @@
 import Modal from "layout/modal/modal"
 
 function LoginModal() {
-  const closeButtonClick = () => {
-    // setModalList(modalList.slice(0, -1))
+  const buttonClick = () => {
+    console.log('xxx')
   }
   const content = () => (
     <>
       <h2>login.tsx :: content</h2>
+      <button onClick={buttonClick}>process</button>
     </>
   )
   return (

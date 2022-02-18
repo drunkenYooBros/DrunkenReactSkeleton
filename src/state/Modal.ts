@@ -20,14 +20,8 @@ export const appendModalSelector = selector({
 export const removeModalSelector = selector({
   key: 'removeModalSelector',
   get: () => {},
-  set: ({get, set}, newValue: any) => {
+  set: ({get, set}) => {
     const list = get(modalListState).slice(0, -1)
     set(modalListState, list)
   }
-})
-
-export const modalListSelector = selector({
-  key: 'modalListSelector',
-  get: () => {},
-  set: () => {},
 })
