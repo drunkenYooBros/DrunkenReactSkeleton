@@ -1,8 +1,9 @@
+import React from 'react';
 import { useSetRecoilState } from 'recoil';
-import { removeModalSelector } from 'state';
+import { closeModalSelector } from 'state';
 
 function Modal(props: any) {
-  const removeModal = useSetRecoilState(removeModalSelector)
+  const removeModal = useSetRecoilState(closeModalSelector)
   const closeButtonClick = () => {
     removeModal()
   }
@@ -10,12 +11,10 @@ function Modal(props: any) {
     console.log('closePopup', params)
     removeModal()
   }
-  const content = (
-    <props.content
-      age="11"
-      closeHandler={closePopup}
-    />
-  )
+  const content = React.createElement(() => props.children, {
+    age: '39',
+    closePopup
+  })
   return (
     <div className="modal is-active">
       <div className="modal-background"></div>

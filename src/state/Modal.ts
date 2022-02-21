@@ -5,8 +5,8 @@ export const modalListState = atom<Array<any>>({
   default: [],
 })
 
-export const appendModalSelector = selector({
-  key: 'appendModalSelector',
+export const openModalSelector = selector({
+  key: 'openModalSelector',
   get: () => {},
   set: ({get, set}, newValue: any) => {
     const list = [
@@ -17,8 +17,8 @@ export const appendModalSelector = selector({
   }
 })
 
-export const removeModalSelector = selector({
-  key: 'removeModalSelector',
+export const closeModalSelector = selector({
+  key: 'closeModalSelector',
   get: () => {},
   set: ({get, set}) => {
     const list = get(modalListState).slice(0, -1)

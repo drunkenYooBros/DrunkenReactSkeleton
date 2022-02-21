@@ -1,9 +1,9 @@
-import LoginModal from 'modals/login/Login';
+import LoginModal from 'modals/login/LoginModal';
 import { useRecoilState, useSetRecoilState } from 'recoil';
-import { modalListState, appendModalSelector } from 'state';
+import { modalListState, openModalSelector } from 'state';
 
 function HongPlay() {
-  const appendModal = useSetRecoilState(appendModalSelector)
+  const openModal = useSetRecoilState(openModalSelector)
 
   const openModalClick = () => {
     const config = {
@@ -11,7 +11,7 @@ function HongPlay() {
       component: <LoginModal />,
       params: {},
     }
-    appendModal(config)
+    openModal(config)
   }
 
   return (

@@ -1,6 +1,6 @@
 import Modal from "layout/modal/modal"
 
-function LoginModal() {
+function JoinModal() {
   const content = (props: any) => (
     <>
       <h2>login.tsx :: content {props.age}</h2>
@@ -16,6 +16,6 @@ function LoginModal() {
   )
 }
 
-export default LoginModal
+export default JoinModal
 
 
