@@ -1,25 +1,30 @@
-import Modal from "layout/modal/modal"
+import Modal from "layout/modal/Modal"
 
 function LoginModal(props: any) {
-  // const content = (props: any) => (
-  //   <>
-  //     <h2>login.tsx :: content {props.age}</h2>
-  //     <button onClick={() => closeHandler()}>only close</button>
-  //     <button onClick={() => closeHandler({data:{}})}>send close</button>
-  //   </>
-  // )
+  return (
+    <Modal
+      content={Content}
+    />
+  )
+}
 
-  const closeHandler = (params: any={}) => {
+function Content(props: any) {
+  
+  const closePopup = (params: any={}) => {
     console.log('LoginModal :: closeModal', params)
     props.closePopup(params);
   }
 
   return (
-    <Modal>
-      <h2>login.tsx :: content {props.age}</h2>
-      <button onClick={() => closeHandler()}>only close</button>
-      <button onClick={() => closeHandler({data:{}})}>send close</button>
-    </Modal>
+    <>
+      <section className="modal-card-body">
+        <h2>loginModal :: props {props.age}</h2>
+      </section>
+      <footer className="modal-card-foot">
+        <button className="button is-success" onClick={() => closePopup()}>Save changes</button>
+        <button className="button" onClick={() => closePopup({data:{}})}>Cancel</button>
+      </footer>
+    </>
   )
 }
 

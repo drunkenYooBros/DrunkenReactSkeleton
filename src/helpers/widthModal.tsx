@@ -1,4 +1,4 @@
-import Modal from 'layout/modal/modal'
+import Modal from 'layout/modal/Modal'
 import React, {useState, useEffect} from 'react'
 import Rest, { RestRequestConfig } from 'service/Rest'
 

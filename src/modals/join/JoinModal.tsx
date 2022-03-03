@@ -1,4 +1,4 @@
-import Modal from "layout/modal/modal"
+import Modal from "layout/modal/Modal"
 
 function JoinModal() {
   const content = (props: any) => (

@@ -7,7 +7,7 @@ export const modalListState = atom<Array<any>>({
 
 export const openModalSelector = selector({
   key: 'openModalSelector',
-  get: () => {},
+  get: () => [],
   set: ({get, set}, newValue: any) => {
     const list = [
       ...get(modalListState),

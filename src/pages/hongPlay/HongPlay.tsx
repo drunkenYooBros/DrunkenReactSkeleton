@@ -8,8 +8,11 @@ function HongPlay() {
   const openModalClick = () => {
     const config = {
       name: 'modal name',
-      component: <LoginModal />,
+      component: LoginModal,
       params: {},
+      close: () => {
+        console.log('hongplay :: modal close')
+      }
     }
     openModal(config)
   }

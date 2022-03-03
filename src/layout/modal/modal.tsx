@@ -1,20 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { closeModalSelector } from 'state';
 
 function Modal(props: any) {
   const removeModal = useSetRecoilState(closeModalSelector)
+
+  useEffect(() => {
+    console.log('Modal :: props', props)
+  })
+
   const closeButtonClick = () => {
     removeModal()
   }
+
   const closePopup = (params: any={}) => {
     console.log('closePopup', params)
     removeModal()
+    props.close()
   }
-  const content = React.createElement(() => props.children, {
+
+  const content = React.createElement(props.content, {
     age: '39',
     closePopup
   })
+
   return (
     <div className="modal is-active">
       <div className="modal-background"></div>
@@ -23,13 +32,7 @@ function Modal(props: any) {
           <p className="modal-card-title">Modal title</p>
           <button className="delete" aria-label="close" onClick={closeButtonClick}></button>
         </header>
-        <section className="modal-card-body">
-          {content}
-        </section>
-        <footer className="modal-card-foot">
-          <button className="button is-success">Save changes</button>
-          <button className="button">Cancel</button>
-        </footer>
+        {content}
       </div>
     </div>
   )
