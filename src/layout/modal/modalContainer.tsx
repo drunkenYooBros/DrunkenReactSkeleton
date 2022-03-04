@@ -9,7 +9,7 @@ function ModalContainer(props: any) {
       key: i,
       params: d.params || {},
       close: d.close || (() => {})
-    }) 
+    })
   )
   return (
     <>
