@@ -1,5 +1,5 @@
-import { mainMenuState } from './menu'
-import { modalListState, openModalSelector, closeModalSelector } from './modal'
+import { mainMenuState } from './menu2'
+import { modalListState, openModalSelector, closeModalSelector } from './modal2'
 
 export {
 	mainMenuState,
