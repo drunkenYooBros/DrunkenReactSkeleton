@@ -24,4 +24,4 @@ export const closeModalSelector = selector({
     const list = get(modalListState).slice(0, -1)
     set(modalListState, list)
   }
-})
+}) 
