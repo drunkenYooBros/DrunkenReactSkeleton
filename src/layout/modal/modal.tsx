@@ -6,11 +6,11 @@ function Modal(props: any) {
   const removeModal = useSetRecoilState(closeModalSelector)
 
   useEffect(() => {
-    console.log('Modal :: props', props)
+    // console.log('Modal :: props', props)
   })
 
   const closeButtonClick = () => {
-    removeModal()
+    closePopup()
   }
 
   const closePopup = (params: any={}) => {
@@ -20,7 +20,7 @@ function Modal(props: any) {
   }
 
   const content = React.createElement(props.content, {
-    age: '39',
+    ...props,
     closePopup
   })
 
@@ -29,7 +29,7 @@ function Modal(props: any) {
       <div className="modal-background"></div>
       <div className="modal-card">
         <header className="modal-card-head">
-          <p className="modal-card-title">Modal title</p>
+          <p className="modal-card-title">{props.title}</p>
           <button className="delete" aria-label="close" onClick={closeButtonClick}></button>
         </header>
         {content}
