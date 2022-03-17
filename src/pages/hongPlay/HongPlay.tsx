@@ -7,6 +7,7 @@ function HongPlay() {
 
   const openModalClick = () => {
     const config = {
+      title: 'Login Modal Title',
       component: LoginModal,
       params: {
         menu: 'HongPlay'

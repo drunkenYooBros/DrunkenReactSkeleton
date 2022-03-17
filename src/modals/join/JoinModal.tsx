@@ -1,4 +1,4 @@
-import Modal from "layout/modal/Modal"
+// import Modal from "layout/modal/Modal"
 
 function JoinModal() {
   const content = (props: any) => (
@@ -10,9 +10,10 @@ function JoinModal() {
   )
 
   return (
-    <Modal
-      content={content}
-    />
+    // <Modal
+    //   content={content}
+    // />
+    <></>
   )
 }
 

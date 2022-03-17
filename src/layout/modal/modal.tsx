@@ -14,14 +14,19 @@ function Modal(props: any) {
   }
 
   const closePopup = (params: any={}) => {
-    console.log('closePopup', params)
     removeModal()
     props.close()
   }
 
-  const content = React.createElement(props.content, {
+  const cancelPopup = () => {
+    removeModal()
+    props.close()
+  }
+
+  const content = React.createElement(props.component, {
     ...props,
-    closePopup
+    closePopup,
+    cancelPopup
   })
 
   return (
@@ -39,5 +44,3 @@ function Modal(props: any) {
 }
 
 export default Modal
-
-

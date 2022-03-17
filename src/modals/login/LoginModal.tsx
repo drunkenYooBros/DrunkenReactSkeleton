@@ -1,7 +1,4 @@
-import Modal from "layout/modal/Modal"
-
-
-function Content(props: any) {
+function LoginModal(props: any) {
   const closePopup = (params: any={}) => {
     console.log('LoginModal :: closeModal', params)
     props.closePopup(params);
@@ -13,20 +10,10 @@ function Content(props: any) {
         <h2>loginModal :: props {props.params?.menu}</h2>
       </section>
       <footer className="modal-card-foot">
-        <button className="button is-success" onClick={() => closePopup()}>Save changes</button>
-        <button className="button" onClick={() => closePopup({data:{}})}>Cancel</button>
+        <button className="button is-success" onClick={() => closePopup({data:{}})}>Save changes</button>
+        <button className="button" onClick={() => closePopup()}>Cancel</button>
       </footer>
     </>
-  )
-}
-
-function LoginModal(props: any) {
-  return (
-    <Modal
-      title="Login"
-      content={Content}
-      {...props}
-    />
   )
 }
 
