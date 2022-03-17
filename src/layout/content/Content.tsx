@@ -1,6 +1,6 @@
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
-import { MainMenuState } from "state";
+import { mainMenuState } from "state";
 import React, {Suspense} from "react";
 import Login from 'pages/login/Login'
 // import * as dynamicComponents from 'pages/dynamic'
@@ -23,7 +23,7 @@ function Content() {
   // console.log('--------------------------');
   // console.log(Component);
 
-  const menus = useRecoilValue(MainMenuState)
+  const menus = useRecoilValue(mainMenuState)
   const routes = menus.map((menu: any) => {
     const path = menu?.nested ? `${menu.path}/*` : menu.path
     const key = menu.id

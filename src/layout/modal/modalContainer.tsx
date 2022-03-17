@@ -19,5 +19,3 @@ function ModalContainer(props: any) {
 }
 
 export default ModalContainer
-
-

@@ -1,10 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-import { MainMenuState } from 'state';
+import { mainMenuState } from 'state';
 
 function Menu() {
-  const menus = useRecoilValue(MainMenuState)
+  const menus = useRecoilValue(mainMenuState)
   const activeStyle: any = {
     textDecoration: "underline",
     textDecorationLine: 'overline',

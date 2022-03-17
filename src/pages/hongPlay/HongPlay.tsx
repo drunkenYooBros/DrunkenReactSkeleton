@@ -11,7 +11,7 @@ function HongPlay() {
       component: LoginModal,
       params: {},
       close: () => {
-        console.log('hongplay :: modal close')
+        console.log('hongplay :sp: modal close')
       }
     }
     openModal(config)
