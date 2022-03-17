@@ -15,7 +15,7 @@ function Modal(props: any) {
 
   const closePopup = (params: any={}) => {
     removeModal()
-    props.close()
+    props.close(params)
   }
 
   const cancelPopup = () => {
