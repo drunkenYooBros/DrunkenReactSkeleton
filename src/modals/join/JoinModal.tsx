@@ -1,19 +1,19 @@
-// import Modal from "layout/modal/Modal"
+function JoinModal(props: any) {
 
-function JoinModal() {
-  const content = (props: any) => (
-    <>
-      <h2>login.tsx :: content {props.age}</h2>
-      <button onClick={() => props.closeHandler()}>only close</button>
-      <button onClick={() => props.closeHandler({data:{}})}>send close</button>
-    </>
-  )
+  const closePopup = (params: any={}) => {
+    props.closePopup(params);
+  }
 
   return (
-    // <Modal
-    //   content={content}
-    // />
-    <></>
+    <>
+      <section className="modal-card-body">
+        <h2>JoinModal.tsx :: props {props.params?.id}</h2>
+      </section>
+      <footer className="modal-card-foot">
+        <button className="button is-success" onClick={() => closePopup({data:{}})}>Save changes</button>
+        <button className="button" onClick={() => closePopup()}>Cancel</button>
+      </footer>
+    </>
   )
 }
 

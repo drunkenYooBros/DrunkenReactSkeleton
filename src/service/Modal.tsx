@@ -1,9 +1,21 @@
 // import { useRecoilState, useSetRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { modalListState, openModalSelector } from 'state';
 
-const openModal = (): any => {
-  return ''
+function ModalUtil(props: any) {
+
+  const xx = useSetRecoilState(openModalSelector)
+  return (
+    <></>
+  )
 }
+export default ModalUtil
 
-export default {
-  openModal,
-};
+// const openModal = (): any => {
+  
+//   return ''
+// }
+
+// export default {
+//   openModal,
+// };
