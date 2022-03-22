@@ -1,19 +1,18 @@
 import JoinModal from 'modals/join/JoinModal';
-import { useRecoilState, useSetRecoilState } from 'recoil';
-import { modalListState, openModalSelector } from 'state';
+import { useSetRecoilState } from 'recoil';
+import { openJoinModalSelector } from 'state';
 
 function LoginModal(props: any) {
-  const openModal = useSetRecoilState(openModalSelector)
+  const openJoinModal = useSetRecoilState(openJoinModalSelector)
   
-  const openJoinModal = () => {
+  const joinClick = () => {
     const config = {
-      component: JoinModal,
-      title: 'Join Modal Title',
       params: {
-        name: 'hongsik'
-      }
+        menu: 'HongPlay'
+      },
+      close: () => console.log('Join Modal Close')
     }
-    openModal(config)
+    openJoinModal(config)
   }
 
   const closePopup = (params: any={}) => {
@@ -24,7 +23,7 @@ function LoginModal(props: any) {
     <>
       <section className="modal-card-body">
         <h2>loginModal :: props {props.params?.menu}</h2>
-        <button className="button" onClick={openJoinModal}>Join</button>
+        <button className="button" onClick={joinClick}>Join</button>
       </section>
       <footer className="modal-card-foot">
         <button className="button is-success" onClick={() => closePopup({data:{}})}>Save changes</button>
