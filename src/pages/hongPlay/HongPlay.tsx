@@ -1,8 +1,8 @@
-import LoginModal from 'modals/login/LoginModal';
+import Page from 'layout/page/Page';
 import { useSetRecoilState } from 'recoil';
 import { openLoginModalSelector } from 'state';
 
-function HongPlay() {
+function HongPlay(props: any) {
   const openLoginModal = useSetRecoilState(openLoginModalSelector)
 
   const loginClick = () => {
@@ -16,10 +16,11 @@ function HongPlay() {
   }
 
   return (
-    <div>
-      <h1>HongPlay page</h1>
+    <Page
+      {...props}
+    >
       <button onClick={loginClick}>Login</button>
-    </div>
+    </Page>
   );
 }
 

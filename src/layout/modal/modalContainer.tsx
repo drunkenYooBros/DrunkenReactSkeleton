@@ -13,8 +13,8 @@ function ModalContainer(props: any) {
   }
   
   const getModalProps = (modalProps: any) => ({
-    ...defaultModalProps,
-    ...modalProps
+    ...defaultModalProps, // 기본값
+    ...modalProps // 사용자 설정값
   })
 
   const modalHtml = modalList.map((d: any, i: number) => 

@@ -16,7 +16,7 @@ function Menu() {
       <NavLink
         to={d.path}
         style={({ isActive }) => isActive ? activeStyle : {}}
-        >
+      >
         {d.name}
       </NavLink>
     </li>

@@ -1,4 +1,3 @@
-import JoinModal from 'modals/join/JoinModal';
 import { useSetRecoilState } from 'recoil';
 import { openJoinModalSelector } from 'state';
 
@@ -15,7 +14,7 @@ function LoginModal(props: any) {
     openJoinModal(config)
   }
 
-  const closePopup = (params: any={}) => {
+  const closeClick = (params: any={}) => {
     props.closePopup(params);
   }
 
@@ -26,8 +25,8 @@ function LoginModal(props: any) {
         <button className="button" onClick={joinClick}>Join</button>
       </section>
       <footer className="modal-card-foot">
-        <button className="button is-success" onClick={() => closePopup({data:{}})}>Save changes</button>
-        <button className="button" onClick={() => closePopup()}>Cancel</button>
+        <button className="button is-success" onClick={() => closeClick({data:{}})}>Save changes</button>
+        <button className="button" onClick={() => closeClick()}>Cancel</button>
       </footer>
     </>
   )

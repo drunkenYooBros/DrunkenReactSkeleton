@@ -27,6 +27,7 @@ function Content() {
   const routes = menus.map((menu: any) => {
     const path = menu?.nested ? `${menu.path}/*` : menu.path
     const key = menu.id
+    const title = menu.name
     // const componentPath = 'pages/hongPlay/HongPlay'
     // const Comp = React.lazy(() => import(menu.componentPath))
     // const p = 'pages/hongPlay/HongPlay'
@@ -37,7 +38,9 @@ function Content() {
         path={path}
         element={
           <React.Suspense fallback={<>...</>}>
-            <Component />
+            <Component
+              title={title}
+            />
           </React.Suspense>
         }
       />
