@@ -1,14 +1,26 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense, useEffect} from 'react';
 import './App.css';
 import 'bulma/css/bulma.min.css';
-import { useSetRecoilState } from 'recoil';
+import { useSetRecoilState, useRecoilValueLoadable, selector } from 'recoil';
 import { mainMenuState } from 'state';
 import apiPortal from 'api/apiPortal';
 import Spinner from 'layout/spinner/Spinner';
 
+// const bootStrapDataState = selector({
+//   key: 'bootStrapDataState',
+//   get: async ({get}) => {
+//     apiPortal.getBootStrapData().then(res => res.menu)
+//   },
+// });
+
 export const bootStrapComponent = (Component: any) => (props: any) => {
+  
+  // const bootStrapDataValue = useRecoilValueLoadable(bootStrapDataState);
+
   const setMainMenuList = useSetRecoilState(mainMenuState)
   useEffect(() => {
+    // console.log('bootStrapDataValue', bootStrapDataValue)
+
     apiPortal.getBootStrapData().then( (data) => {
       setMainMenuList(data.menu)
     })

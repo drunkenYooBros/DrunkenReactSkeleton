@@ -21,7 +21,7 @@ function LoginModal(props: any) {
   return (
     <>
       <section className="modal-card-body">
-        <h2>loginModal :: props {props.params?.menu}</h2>
+        <h2>loginModal :: props {props.params}</h2>
         <button className="button" onClick={joinClick}>Join</button>
       </section>
       <footer className="modal-card-foot">
