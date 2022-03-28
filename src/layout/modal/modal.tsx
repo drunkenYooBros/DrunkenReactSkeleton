@@ -3,30 +3,20 @@ import { useSetRecoilState } from 'recoil';
 import { closeModalSelector } from 'state';
 
 function Modal(props: any) {
-  const removeModal = useSetRecoilState(closeModalSelector)
+  const closeModal = useSetRecoilState(closeModalSelector)
 
   useEffect(() => {
     // console.log('Modal :: props', props)
   })
 
-  const closeButtonClick = () => {
-    closePopup()
-  }
-
-  const closePopup = (params: any={}) => {
-    removeModal()
-    props.close(params)
-  }
-
-  const cancelPopup = () => {
-    removeModal()
-    props.close()
+  const close = (params: any={}) => {
+    closeModal(params)
+    // props.close(params)
   }
 
   const content = React.createElement(props.component, {
     ...props,
-    closePopup,
-    cancelPopup
+    close,
   })
 
   return (
@@ -35,7 +25,7 @@ function Modal(props: any) {
       <div className="modal-card">
         <header className="modal-card-head">
           <p className="modal-card-title">{props.title}</p>
-          <button className="delete" aria-label="close" onClick={closeButtonClick}></button>
+          <button className="delete" aria-label="close" onClick={() => close()}></button>
         </header>
         {content}
       </div>

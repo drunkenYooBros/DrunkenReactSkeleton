@@ -10,7 +10,7 @@ function HongPlay(props: any) {
       params: {
         menu: 'HongPlay'
       },
-      close: () => console.log('Login Modal Close')
+      close: (params: any) => console.log('Login Modal Close', params)
     }
     openLoginModal(config)
   }

@@ -27,9 +27,12 @@ export const openModalSelector = selector({
 export const closeModalSelector = selector({
   key: 'closeModalSelector',
   get: () => {},
-  set: ({get, set}) => {
-    const list = get(modalListState).slice(0, -1)
-    set(modalListState, list)
+  set: ({get, set}, params: any={}) => {
+    const lastModal = get(modalListState).at(-1)
+    const modalList = get(modalListState).slice(0, -1)
+    set(modalListState, modalList)
+    // execute callback function
+    typeof lastModal.close === 'function' && lastModal.close(params)
   }
 })
 

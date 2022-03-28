@@ -15,7 +15,7 @@ function LoginModal(props: any) {
   }
 
   const closeClick = (params: any={}) => {
-    props.closePopup(params);
+    props.close(params);
   }
 
   return (
