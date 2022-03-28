@@ -9,7 +9,8 @@ import Spinner from 'layout/spinner/Spinner';
 // const bootStrapDataState = selector({
 //   key: 'bootStrapDataState',
 //   get: async ({get}) => {
-//     apiPortal.getBootStrapData().then(res => res.menu)
+//     const response = apiPortal.getBootStrapData()
+//     return response.menu
 //   },
 // });
 

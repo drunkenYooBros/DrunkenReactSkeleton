@@ -1,10 +1,19 @@
+import apiPortal from 'api/apiPortal';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, selector } from 'recoil';
 import { mainMenuState } from 'state';
 
+const menuSelector = selector({
+  key: 'menuSelector',
+  get: async ({get}) => {
+    const response = await apiPortal.getMenu()
+    return response
+  },
+});
+
 function Menu() {
-  const menus = useRecoilValue(mainMenuState)
+  const menus = useRecoilValue(menuSelector)
   const activeStyle: any = {
     textDecoration: "underline",
     textDecorationLine: 'overline',
