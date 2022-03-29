@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
 import { modalListState } from 'state';
-import Modal from './Modal';
+import Modal from './Modal2';
 
 function ModalContainer(props: any) {
   const modalList = useRecoilValue(modalListState)
