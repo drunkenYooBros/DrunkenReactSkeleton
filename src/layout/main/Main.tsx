@@ -1,4 +1,4 @@
-import ModalContainer from 'layout/modal/ModalContainer';
+import ModalContainer from 'layout/modal/ModalContainer2';
 import PageContainer from 'layout/page/PageContainer';
 import Footer from '../footer/Footer';
 import Header from '../header/Header';
