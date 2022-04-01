@@ -32,7 +32,14 @@ const getMenuList = rest.get('/menu', (req, res, ctx) => {
         "element": "Users",
         "nested": true,
         "component": "users/Users"
-      }
+      },
+      {
+        "id": id++,
+        "name": "Form Sample",
+        "path": "/formSample",
+        "element": "FormSample",
+        "component": "formSample/FormSample"
+      },
     ]}
   ))
 })
