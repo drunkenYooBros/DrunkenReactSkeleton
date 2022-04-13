@@ -1,8 +1,7 @@
-import React from 'react';
-import { useRecoilValue } from 'recoil';
-import { mainMenuState } from "state";
-import { Routes, Route, Outlet, Link } from "react-router-dom";
-
+import React from "react"
+import { useRecoilValue } from "recoil"
+import { mainMenuState } from "state"
+import { Routes, Route, Outlet, Link } from "react-router-dom"
 
 function PageContainer(props: any) {
   const menus = useRecoilValue(mainMenuState)
@@ -17,9 +16,7 @@ function PageContainer(props: any) {
         path={path}
         element={
           <React.Suspense fallback={<>...</>}>
-            <Component
-              title={title}
-            />
+            <Component title={title} />
           </React.Suspense>
         }
       />
@@ -28,11 +25,9 @@ function PageContainer(props: any) {
 
   return (
     <div className="container is-fluid">
-      <Routes>
-        {routes}
-      </Routes>
+      <Routes>{routes}</Routes>
     </div>
-  );
+  )
 }
 
 export default PageContainer
