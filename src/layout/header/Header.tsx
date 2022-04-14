@@ -1,23 +1,31 @@
-import React from 'react'
-import User from 'layout/user/User'
-import Menu from 'layout/menu/Menu'
-
+import React from "react"
+import User from "layout/user/User"
+import Menu from "layout/menu/Menu"
 
 function Header() {
+  const logoStyle: any = {
+    fontWeight: "bold",
+  }
+
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <a className="navbar-item" href="/">
-          <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"/>
+          <span style={logoStyle}>React Play</span>
         </a>
-
-        <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <a
+          role="button"
+          className="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+          title="xxx"
+        >
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
       </div>
-
       <div id="navbarBasicExample" className="navbar-menu">
         <div className="navbar-start">
           <Menu />
@@ -29,7 +37,7 @@ function Header() {
         </div>
       </div>
     </nav>
-  );
+  )
 }
 
-export default Header;
+export default Header
