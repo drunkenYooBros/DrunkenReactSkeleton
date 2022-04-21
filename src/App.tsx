@@ -19,13 +19,13 @@ export const bootStrapComponent = (Component: any) => (props: any) => {
   // const bootStrapDataValue = useRecoilValueLoadable(bootStrapDataState);
 
   const setMainMenuList = useSetRecoilState(mainMenuState)
-  useEffect(() => {
-    // console.log('bootStrapDataValue', bootStrapDataValue)
 
+  useEffect(() => {
     apiPortal.getBootStrapData().then((data) => {
       setMainMenuList(data.menu)
     })
   }, [])
+
   return (
     <Suspense fallback={<Spinner />}>
       <Component {...props} />

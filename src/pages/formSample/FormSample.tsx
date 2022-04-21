@@ -1,13 +1,21 @@
+import FormError from "components/FormError"
 import Page from "layout/page/Page"
+import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { useSetRecoilState } from "recoil"
 import { openLoginModalSelector } from "state"
 
 function FormSample(props: any) {
+  useEffect(() => {
+    setFocus("id")
+  }, [])
+
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    getValues,
+    setFocus,
+    formState: { errors, touchedFields },
   } = useForm()
 
   const onSubmit = (data: any) => {
@@ -15,22 +23,37 @@ function FormSample(props: any) {
   }
 
   const cancel = () => {
-    console.log(errors)
+    console.log(getValues(), errors)
   }
 
   return (
     <Page {...props}>
+      {/* <h5>{errors.id}</h5> */}
+      {/* <h5>{JSON.stringify(errors.type)}</h5> */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="field">
           <label className="label">ID</label>
-          <div className="control">
+          <div className="control has-icons-left">
             <input
               className="input"
               type="text"
-              {...register("id", { required: true })}
+              {...register("id", {
+                required: true,
+                maxLength: 1,
+                max: 1,
+              })}
             />
+            <span className="icon is-small is-left">
+              <i className="fas fa-user"></i>
+            </span>
           </div>
-          <p className="help is-danger">This ID is required</p>
+          {/* <FormError id="id" errors={errors} /> */}
+          {/* {errors.id?.type === "required" && (
+            <FormError id="id" errors={errors} />
+          )} */}
+          {/* {errors.id?.type === "required" && (
+            <p className="help is-danger">This ID is required</p>
+          )} */}
         </div>
         <div className="field">
           <label className="label">Password</label>
@@ -38,7 +61,9 @@ function FormSample(props: any) {
             <input
               className="input is-success"
               type="text"
-              {...register("password")}
+              {...register("password", {
+                required: errors.id?.type !== "required",
+              })}
             />
             <span className="icon is-small is-left">
               <i className="fas fa-user"></i>
@@ -47,7 +72,9 @@ function FormSample(props: any) {
               <i className="fas fa-check"></i>
             </span>
           </div>
-          <p className="help is-success">This username is available</p>
+          {errors.password?.type === "required" && (
+            <p className="help is-danger">This Password is required</p>
+          )}
         </div>
         <div className="field is-grouped">
           <div className="control">
