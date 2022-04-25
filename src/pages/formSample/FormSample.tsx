@@ -23,13 +23,11 @@ function FormSample(props: any) {
   }
 
   const cancel = () => {
-    console.log(getValues(), errors)
+    console.log(errors)
   }
 
   return (
     <Page {...props}>
-      {/* <h5>{errors.id}</h5> */}
-      {/* <h5>{JSON.stringify(errors.type)}</h5> */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="field">
           <label className="label">ID</label>
@@ -39,21 +37,15 @@ function FormSample(props: any) {
               type="text"
               {...register("id", {
                 required: true,
-                maxLength: 1,
-                max: 1,
+                // maxLength: 1,
+                // max: 1,
               })}
             />
             <span className="icon is-small is-left">
               <i className="fas fa-user"></i>
             </span>
           </div>
-          {/* <FormError id="id" errors={errors} /> */}
-          {/* {errors.id?.type === "required" && (
-            <FormError id="id" errors={errors} />
-          )} */}
-          {/* {errors.id?.type === "required" && (
-            <p className="help is-danger">This ID is required</p>
-          )} */}
+          <FormError id="id" errors={errors} />
         </div>
         <div className="field">
           <label className="label">Password</label>
@@ -61,9 +53,10 @@ function FormSample(props: any) {
             <input
               className="input is-success"
               type="text"
-              {...register("password", {
-                required: errors.id?.type !== "required",
-              })}
+              {...register("password", { required: true })}
+              // {...register("password", {
+              //   required: errors.id?.type !== "required",
+              // })}
             />
             <span className="icon is-small is-left">
               <i className="fas fa-user"></i>
@@ -72,9 +65,7 @@ function FormSample(props: any) {
               <i className="fas fa-check"></i>
             </span>
           </div>
-          {errors.password?.type === "required" && (
-            <p className="help is-danger">This Password is required</p>
-          )}
+          <FormError id="password" errors={errors} />
         </div>
         <div className="field is-grouped">
           <div className="control">
