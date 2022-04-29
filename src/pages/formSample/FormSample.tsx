@@ -23,7 +23,7 @@ function FormSample(props: any) {
   }
 
   const cancel = () => {
-    console.log(errors)
+    console.log(errors, getValues())
   }
 
   return (
@@ -35,11 +35,7 @@ function FormSample(props: any) {
             <input
               className="input"
               type="text"
-              {...register("id", {
-                required: true,
-                // maxLength: 1,
-                // max: 1,
-              })}
+              {...register("id", { required: true })}
             />
             <span className="icon is-small is-left">
               <i className="fas fa-user"></i>
