@@ -1,14 +1,23 @@
+import Counter from "components/Counter"
 import FormError from "components/FormError"
 import Page from "layout/page/Page"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import { useSetRecoilState } from "recoil"
 import { openLoginModalSelector } from "state"
 
 function FormSample(props: any) {
-  useEffect(() => {
-    setFocus("id")
-  }, [])
+  const [count, setCount] = useState(0)
+
+  // useEffect(() => {
+  //   console.log("useEffect")
+  //   const id = setInterval(() => {
+  //     console.log("setInterval : count", count)
+  //     setCount(count + 1) // 이 effect는 'count' state에 따라 다릅니다
+  //   }, 1000)
+  //   return () => clearInterval(id)
+  //   // setFocus("id")
+  // }, [count])
 
   const {
     register,
@@ -28,6 +37,7 @@ function FormSample(props: any) {
 
   return (
     <Page {...props}>
+      <Counter />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="field">
           <label className="label">ID</label>
