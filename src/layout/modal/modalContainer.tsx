@@ -20,7 +20,7 @@ function ModalContainer(props: any) {
   const modalHtml = modalList.map((d: any, i: number) => (
     <Modal key={i} {...getModalProps(d)} />
   ))
-  return <> {modalHtml}</>
+  return <>{modalHtml}</>
 }
 
 export default ModalContainer

@@ -1,15 +1,23 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 function Counter() {
   const [count, setCount] = useState(0)
 
+  let interval: any
+  let size = useRef(0)
+  let size2 = 0
+
   useEffect(() => {
-    // setCount(count + 1)
-    // setTimeout(() => {
-    //   // setCount(count + 1)
-    //   setCount((c) => c + 1)
-    // })
-  }, [])
+    console.log("============================ start")
+    interval = setInterval(() => {
+      console.log("execute interval", size.current++)
+      console.log("execute interva2", size2++)
+    }, 1000)
+    return () => {
+      clearInterval(interval)
+      console.log("============================ end")
+    }
+  }, [count])
 
   const increase = () => {
     setCount(count + 2)

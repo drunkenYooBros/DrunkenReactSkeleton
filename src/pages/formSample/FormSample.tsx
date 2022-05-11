@@ -1,7 +1,7 @@
 import Counter from "components/Counter"
 import FormError from "components/FormError"
 import Page from "layout/page/Page"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useForm } from "react-hook-form"
 import { useSetRecoilState } from "recoil"
 import { openLoginModalSelector } from "state"
@@ -34,6 +34,22 @@ function FormSample(props: any) {
   const cancel = () => {
     console.log(errors, getValues())
   }
+
+  // let interval: any
+  // let size = useRef(0)
+  // let size2 = 0
+
+  useEffect(() => {
+    // console.log("============================ start")
+    // interval = setInterval(() => {
+    //   console.log("execute interval", size.current++)
+    //   console.log("execute interva2", size2++)
+    // }, 1000)
+    // return () => {
+    //   clearInterval(interval)
+    //   console.log("============================ end")
+    // }
+  }, [])
 
   return (
     <Page {...props}>
