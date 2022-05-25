@@ -1,7 +1,7 @@
-import ModalContainer from 'layout/modal/ModalContainer';
-import PageContainer from 'layout/page/PageContainer';
-import Footer from '../footer/Footer';
-import Header from '../header/Header';
+import ModalContainer from "layout/modal/ModalContainer2"
+import PageContainer from "layout/page/PageContainer"
+import Footer from "../footer/Footer"
+import Header from "../header/Header"
 
 function Main() {
   return (
@@ -11,7 +11,7 @@ function Main() {
       <Footer />
       <ModalContainer />
     </div>
-  );
+  )
 }
 
-export default Main;
+export default Main
