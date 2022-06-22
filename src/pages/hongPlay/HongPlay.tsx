@@ -1,6 +1,7 @@
-import Page from 'layout/page/Page';
-import { useSetRecoilState } from 'recoil';
-import { openLoginModalSelector } from 'state';
+import Page from 'layout/page/Page'
+import { useSetRecoilState } from 'recoil'
+import { openLoginModalSelector } from 'state'
+import TreeBox from './TreeBox'
 
 function HongPlay(props: any) {
   const openLoginModal = useSetRecoilState(openLoginModalSelector)
@@ -8,20 +9,19 @@ function HongPlay(props: any) {
   const loginClick = () => {
     const config = {
       params: {
-        menu: 'HongPlay'
+        menu: 'HongPlay',
       },
-      close: (params: any) => console.log('Login Modal Close', params)
+      close: (params: any) => console.log('Login Modal Close', params),
     }
     openLoginModal(config)
   }
 
   return (
-    <Page
-      {...props}
-    >
+    <Page {...props}>
       <button onClick={loginClick}>Login</button>
+      <TreeBox />
     </Page>
-  );
+  )
 }
 
-export default HongPlay;
+export default HongPlay
